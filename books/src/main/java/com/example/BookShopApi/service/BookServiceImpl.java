@@ -25,4 +25,20 @@ public class BookServiceImpl implements BookService {
     public Book getBook(int id) {
         return this.bookrepository.findById(id).orElse(null);
     }
+
+    @Override
+    public Book createBook(Book book) {
+        this.bookrepository.save(book);
+        return book;
+    }
+
+    @Override
+    public void deleteBook(int id) {
+        this.bookrepository.deleteById(id);
+    }
+
+    @Override
+    public void updateBook(Book book) {
+        this.bookrepository.save(book);
+    }
 }

@@ -5,7 +5,9 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.lang.NonNull;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -24,10 +26,19 @@ public class Order {
     private Customer customer;
 
 
-/*
-    @JoinColumn(name = "isbn")
-    private Book book;
-*/
+    @ElementCollection(targetClass=Book.class)
+    @JsonIgnoreProperties({ "order" })
+    @OneToMany(mappedBy="order",cascade = CascadeType.ALL)//cascade = CascadeType.REMOVE)
+    private List<Book> books = new ArrayList<>();
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBook(Book book) {
+        this.books.add(book);
+    }
+
 
 
     private Date orderDate;
@@ -87,16 +98,7 @@ public class Order {
         this.customer = customer;
     }
 
-    /*
-    @OneToMany(targetEntity=Book.class)
-    public Book getBook() {
-        return book;
-    }
 
-    public void setBook(Book book) {
-        this.book = book;
-    }
-*/
     public int getOrderId() {
         return orderId;
     }

@@ -27,4 +27,19 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findById(id).orElse(null);
     }
 
+    @Override
+    public Customer createCustomer(Customer customer) {
+        this.customerRepository.save(customer);
+        return customer;
+    }
+
+    @Override
+    public void deleteCustomer(int id) {
+        this.customerRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateCustomer(Customer customer) {
+        this.customerRepository.save(customer);
+    }
 }

@@ -29,5 +29,21 @@ public class CustomerController {
     }
 
 
+    @PostMapping(value = "/add/",consumes = "application/json")
+    Customer addCustomer(@RequestBody Customer customer){
+        return customerService.createCustomer(customer);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    void deleteCustomer(@PathVariable int id){
+        customerService.deleteCustomer(id);
+    }
+
+    @PutMapping("/edit/")
+    void modifierCustomer(@RequestBody Customer customer){
+        this.customerService.updateCustomer(customer);
+    }
+
+
 
 }

@@ -5,10 +5,7 @@ import com.example.BookShopApi.bo.Order;
 import com.example.BookShopApi.service.BookService;
 import com.example.BookShopApi.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/orders")
@@ -31,4 +28,18 @@ public class OrderController {
         return this.orderService.getOrder(id);
     }
 
+    @PostMapping(value = "/add/",consumes = "application/json")
+    Order addOrder(@RequestBody Order order){
+        return orderService.createOrder(order);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    void deleteOrder(@PathVariable int id){
+        orderService.deleteOrder(id);
+    }
+
+    @PutMapping("/edit/")
+    void modifierOrder(@RequestBody Order order){
+        this.orderService.updateOrder(order);
+    }
 }

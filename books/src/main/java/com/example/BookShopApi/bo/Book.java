@@ -1,5 +1,6 @@
 package com.example.BookShopApi.bo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.lang.NonNull;
 import javax.persistence.*;
 import java.util.Date;
@@ -26,6 +27,75 @@ public class Book {
     private String note;
     private String format;
     private String presentation;
+
+    @JsonIgnoreProperties({ "books" })
+    @JoinColumn(name = "orderId")
+    @ManyToOne(targetEntity=Order.class)
+    private Order order;
+
+    public void setPresentation(String presentation) {
+        this.presentation = presentation;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public void setNumberPages(int numberPages) {
+        this.numberPages = numberPages;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setNumberCopiesInStock(int numberCopiesInStock) {
+        this.numberCopiesInStock = numberCopiesInStock;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public void setEan(String ean) {
+        this.ean = ean;
+    }
+
+    public void setEditor(String editor) {
+        this.editor = editor;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setIsbn(int isbn) {
+        this.isbn = isbn;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 
     public int getIsbn() {
         return isbn;

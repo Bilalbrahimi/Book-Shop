@@ -1,5 +1,6 @@
 package com.example.BookShopApi;
 
+import com.example.BookShopApi.bo.Book;
 import com.example.BookShopApi.bo.Customer;
 import com.example.BookShopApi.bo.Order;
 import com.example.BookShopApi.repository.BookRepository;
@@ -20,7 +21,7 @@ public class BookShopApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BookShopApiApplication.class, args);
 	}
-/*
+
 	@Bean
 	@Autowired
 	public CommandLineRunner demo(BookRepository bookRepository, CustomerRepository customerRepository, OrderRepository orderRepository) {
@@ -66,7 +67,34 @@ public class BookShopApiApplication {
 			orderRepository.save(cmd1);
 			orderRepository.save(cmd2);
 
-			/-*
+			var book1 = new Book();
+			book1.setIsbn(10001);
+			book1.setTitle("book1");
+			book1.setNumberCopiesInStock(10);
+			book1.setOrder(cmd1);
+			book1.setOrder(cmd2);
+
+			var book2 = new Book();
+			book2.setIsbn(10002);
+			book2.setTitle("book2");
+			book2.setNumberCopiesInStock(10);
+			book2.setOrder(cmd1);
+
+			var book3 = new Book();
+			book3.setIsbn(10003);
+			book3.setTitle("book3");
+			book3.setNumberCopiesInStock(10);
+			book3.setOrder(cmd2);
+
+
+			bookRepository.save(book1);
+			bookRepository.save(book2);
+			bookRepository.save(book3);
+
+
+
+
+			/*
 			Incident incident = new Incident();
 			incident.setId("Incident10");
 			incident.setMotif("probleme eau");
@@ -102,10 +130,10 @@ public class BookShopApiApplication {
 			evenement1.setTitre("Soirée dance");
 			Evenement evenement2 = new Evenement();
 			evenement2.setTitre("Youga");
-			*-/
+			*/
 
 		};
 	}
 
-*/
+
 }

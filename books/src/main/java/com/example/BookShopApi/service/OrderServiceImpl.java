@@ -28,4 +28,22 @@ public class OrderServiceImpl implements OrderService {
     public Order getOrder(int id) {
         return this.orderRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public Order createOrder(Order order) {
+        this.orderRepository.save(order);
+        return order;
+    }
+
+    @Override
+    public void deleteOrder(int id) {
+        this.orderRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateOrder(Order order) {
+        this.orderRepository.save(order);
+    }
+
+
 }
