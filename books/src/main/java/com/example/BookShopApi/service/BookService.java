@@ -1,6 +1,5 @@
 package com.example.BookShopApi.service;
 import com.example.BookShopApi.bo.Book;
-import com.example.BookShopApi.bo.Customer;
 
 
 public interface BookService {

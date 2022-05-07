@@ -45,6 +45,7 @@ public class Order {
     private Date shippingDate;
     private Date receiptDate;
     private int amountOrdered;
+    //A modifier !!!!!!!!!
     private String status;
 
     public String getStatus() {
