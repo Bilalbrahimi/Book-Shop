@@ -6,6 +6,13 @@ import com.example.BookShopApi.service.BookService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @RestController
 @RequestMapping(value = "/books")
@@ -41,5 +48,21 @@ public class BookController {
         @PutMapping("/edit/")
         void modifierBook(@RequestBody Book book){
             this.bookService.updateBook(book);
+        }
+
+
+        @PostMapping(value = "/upImg")
+        void uploadImage(@RequestParam MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
+
+
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get("./../FrontEndEtudiant/src/assets/incidents/" + file.getOriginalFilename());
+            Files.write(path, bytes);
+            path = Paths.get("./../FrontEndAgent/src/assets/incidents/" + file.getOriginalFilename());
+            Files.write(path, bytes);
+
+
+            redirectAttributes.addFlashAttribute("message",
+                    "You successfully uploaded " + file.getOriginalFilename() + "!");
         }
 }

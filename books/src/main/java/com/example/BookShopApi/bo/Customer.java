@@ -40,6 +40,17 @@ public class Customer {
     @NonNull
     private String encryptedPassword;
 
+    public boolean isConnected() {
+        return connected;
+    }
+
+    public void setConnected(boolean connected) {
+        this.connected = connected;
+    }
+
+    @NonNull
+    private boolean connected;
+
 
 
     @ElementCollection(targetClass=Order.class)
@@ -128,7 +139,6 @@ public class Customer {
     public void setCustomerID(@NonNull int customerID) {
         this.customerID = customerID;
     }
-
 
 
 }

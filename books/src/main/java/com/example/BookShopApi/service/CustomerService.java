@@ -9,6 +9,7 @@ public interface CustomerService {
     Customer createCustomer(Customer customer);
     void deleteCustomer(int id);
     void updateCustomer(Customer customer);
+    public Customer isConnected(String mail, String mdp);
 
 
 

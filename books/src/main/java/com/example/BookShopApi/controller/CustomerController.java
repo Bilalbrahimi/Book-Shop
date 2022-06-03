@@ -45,5 +45,15 @@ public class CustomerController {
     }
 
 
+    @GetMapping(value="/connected/{mail}/{mdp}")
+    Customer getCustomer(@PathVariable String mail, @PathVariable String mdp){
+        if(mail == null || mdp ==null){
+            return null;
+        }else{
+            return this.customerService.isConnected(mail,mdp);
+        }
+
+    }
+
 
 }

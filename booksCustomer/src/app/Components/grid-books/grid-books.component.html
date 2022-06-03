@@ -1,0 +1,93 @@
+
+  
+
+  
+  <div id="researchBar" class="row">
+    <div class="col-md-5 mx-auto">
+        <div class="input-group">
+            <input class="form-control border-end-0 border rounded-pill" type="search" value="search" id="example-search-input">
+            <span class="input-group-append">
+                <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+    <hr class="my-4" id="separateurH" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <div class="collapse" id="collapseExample">
+      <div class="form-row align-items-center">
+        <div class="col-auto my-1">
+          <label class="mr-sm-2" for="inlineFormCustomSelect">Category : </label>
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option selected>all</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+      <hr class="my-4" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    </div>
+  </div>
+
+
+
+<div id ="container" class="row row-cols-1 row-cols-md-3 g-4">
+<H2 *ngIf="testOK">{{test.emailAddress}} ---- {{test}}</H2>
+<pre>{{test | json}}</pre>
+  <div *ngFor="let bk of books " class="card" style="width: 18rem;" (click)="editBook(bk)" data-bs-toggle="modal" data-bs-target="#detailsBook" data-whatever="@getbootstrap">
+    <img src="#" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ bk.title }}</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ISBN : {{ bk.isbn }}</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+    </ul>
+    <div class="card-body">
+
+      <a href="#" class="card-link" >Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+
+
+      <div class="modal" id="detailsBook">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="h5Title">{{ mBook.title}}</h5>
+                    
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label required">{{mBook.title}}</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required">Email</label>
+                            <input type="email" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required">Type ypur message here</label>
+                            <textarea class="form-control"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-danger">Cancel</button>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+
+
+</div>
+
+
+

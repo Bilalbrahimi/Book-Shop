@@ -42,4 +42,21 @@ public class CustomerServiceImpl implements CustomerService {
     public void updateCustomer(Customer customer) {
         this.customerRepository.save(customer);
     }
+
+    @Override
+    public Customer isConnected(String mail, String mdp ) {
+        Iterable<Customer> listeCustomers = customerRepository.findAll();
+
+        for (Customer c : listeCustomers){
+            if(c.getEmailAddress().equals(mail)){
+                if(c.getEncryptedPassword().equals(mdp)){
+                    c.setConnected(true);
+                    return c;
+                }
+            }
+        }
+
+        return null;
+    }
+
 }

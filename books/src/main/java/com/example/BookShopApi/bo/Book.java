@@ -19,6 +19,15 @@ public class Book {
     private String price;
     private String summary;
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    private String imageUrl;
     private int numberCopiesInStock;
 
     private Date date;
@@ -32,6 +41,16 @@ public class Book {
     @JoinColumn(name = "orderId")
     @ManyToOne(targetEntity=Order.class)
     private Order order;
+
+
+
+    @JsonIgnoreProperties({ "books" })
+    @JoinColumn(name = "categoryId")
+    @ManyToOne(targetEntity=Category.class)
+    private Category category;
+
+    public Book() {
+    }
 
     public void setPresentation(String presentation) {
         this.presentation = presentation;
@@ -153,5 +172,11 @@ public class Book {
         return presentation;
     }
 
+    public Category getCategory() {
+        return category;
+    }
 
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
