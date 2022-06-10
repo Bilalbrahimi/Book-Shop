@@ -1,11 +1,13 @@
+import { Byte } from "@angular/compiler/src/util"
+
 export interface Book {
 
-    isbn:string;
-    title: string;
-    author: string;
-    editor: string;
-    price: number;
-    numberCopiesInStock: number;
-    date: any;
+    id : Number
+    name : string
+    description : string
+    price : Number
+    addedOn : Date
+    image : [Byte]
+    imageUrl : string
 
 }
