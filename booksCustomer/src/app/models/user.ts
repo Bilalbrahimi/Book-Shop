@@ -7,4 +7,5 @@ export interface User {
     address : string
     phone : string
     cartItems : any[]
+    admin : boolean
 }

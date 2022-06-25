@@ -1,0 +1,54 @@
+thead,
+tbody,
+tr,
+td,
+th {
+    display: block;
+}
+
+tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+tbody {
+    overflow-y: auto;
+}
+
+tbody td,
+thead th {
+    width: 14.28%;
+    height: 50px;
+    float: left;
+}
+
+th {
+    text-align: center;
+}
+
+.fa-unsorted {
+    margin-left: 20px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  text-align: center;
+  width: 60%;
+}
+
+.fa-minus-circle, .fa-plus-circle{
+    padding: 0.3em;
+}
+
+#btnToDelete{
+    margin-left: 1em;
+}

@@ -18,4 +18,8 @@ export class BooksService {
   getBook (id : string) : Observable<Book> {
       return this.http.get<Book>(`${this.apiUrl}/api/books/${id}`);
   }
+
+  deleteBook (id : string) : Observable<any> {
+    return this.http.delete(`${this.apiUrl}/api/books/${id}`);
+  }
 }

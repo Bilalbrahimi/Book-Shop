@@ -1,4 +1,5 @@
 import { Byte } from "@angular/compiler/src/util"
+import { Commande } from "./commande";
 
 export interface Book {
 
@@ -9,5 +10,10 @@ export interface Book {
     addedOn : Date
     image : [Byte]
     imageUrl : string
+    author : string
+    editor : string
+    ean : string
+    isbn : string
+    commande: Commande
 
 }

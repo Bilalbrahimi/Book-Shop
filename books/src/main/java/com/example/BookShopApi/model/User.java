@@ -3,6 +3,7 @@ package com.example.BookShopApi.model;
 import javax.persistence.*;
 
 import com.example.BookShopApi.model.cart.CartItem;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -34,9 +35,24 @@ public class User {
     @Column(nullable = false, length = 15)
     private String phone;
 
+
+    @Column(nullable = false)
+    private boolean admin;
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+
+
     @JsonManagedReference
     @OneToMany(mappedBy = "pk.user", cascade = CascadeType.ALL)
     private List<CartItem> cartItems = new ArrayList<>();
+
 
     public User () {
     }

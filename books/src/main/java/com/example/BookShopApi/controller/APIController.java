@@ -2,13 +2,11 @@ package com.example.BookShopApi.controller;
 
 import com.example.BookShopApi.config.JwtUtil;
 import com.example.BookShopApi.model.Book;
+import com.example.BookShopApi.model.Commande;
 import com.example.BookShopApi.model.User;
 import com.example.BookShopApi.model.cart.CartItem;
 import com.example.BookShopApi.model.cart.CartItemPK;
-import com.example.BookShopApi.service.BookService;
-import com.example.BookShopApi.service.CartItemService;
-import com.example.BookShopApi.service.JwtUserDetailsService;
-import com.example.BookShopApi.service.UserService;
+import com.example.BookShopApi.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +25,7 @@ public class APIController {
     private final UserService userService;
     private final BookService bookService;
     private final CartItemService cartItemService;
+    private final CommandeService commandeService;
 
     @Autowired
     private JwtUserDetailsService jwtUserDetailsService;
@@ -34,10 +33,11 @@ public class APIController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    public APIController(UserService userService, BookService bookService, CartItemService cartItemService) {
+    public APIController(UserService userService, BookService bookService, CartItemService cartItemService,CommandeService commandeService) {
         this.userService = userService;
         this.bookService = bookService;
         this.cartItemService = cartItemService;
+        this.commandeService = commandeService;
     }
 
     @PostMapping("/create-token")
@@ -157,5 +157,31 @@ public class APIController {
     public ResponseEntity<CartItem> getCartItem (@PathVariable("id") Long id,
                                                  @PathVariable("bookId") Long bookId) {
         return ResponseEntity.ok(cartItemService.getCartItem(id, bookId));
+    }
+
+
+    @GetMapping(value="/commande/all")
+    Iterable<Commande> getAllCommandes(){
+        return this.commandeService.getListeCommandes();
+    }
+
+    @GetMapping(value="/commande/id/{id}")
+    Commande getCommande(@PathVariable int id){
+        return this.commandeService.getCommande(id);
+    }
+
+    @PostMapping(value = "/commande")
+    Commande addCommande(@RequestBody Commande commande){
+        return commandeService.createCommande(commande);
+    }
+
+    @DeleteMapping("/commande/delete/{id}")
+    void deleteOrder(@PathVariable int id){
+        commandeService.deleteCommande(id);
+    }
+
+    @PutMapping("/commande/edit")
+    void modifierCommande(@RequestBody Commande commande){
+        this.commandeService.updateCommande(commande);
     }
 }

@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="!isAdmin">
     <style>
 
         nav {
@@ -29,12 +29,64 @@
             <a  class="btn btn-primary" aria-label="Panier" routerLink="account">
               <i class="fa fa-user" aria-hidden="true"></i>
             </a>
-            <a  class="btn btn-primary" aria-label="Panier" routerLink="cart">
+
+            <button type="button" class="btn btn-primary position-relative" aria-label="Panier" routerLink="cart">
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            </a>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{user.cartItems.length}}
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            </button>
 
           </form>
         </div>
       </nav>
     <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="isAdmin">
+  <style>
+
+      nav {
+          box-shadow: 5px 5px 20px #000;
+      }
+  </style>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-12 px-5 mb-5 fixed-top">
+      <a class="navbar-brand" href="#">BookShop-Admin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="flex-grow: 1;">
+          <li class="nav-item">
+              <a class="nav-link" routerLink="shop">Apparence Vente</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="shop">Mise en Vente</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="users">Clients</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="shop">Commandes</a>
+          </li>
+
+          
+
+
+        </ul>
+        <form *ngIf="isTokenThere" class="form-inline my-2 my-lg-0 d-flex" (submit)="search()">
+
+          <a  class="btn btn-primary" aria-label="Panier" routerLink="account">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </a>
+
+        </form>
+      </div>
+    </nav>
+  <router-outlet></router-outlet>
 </div>

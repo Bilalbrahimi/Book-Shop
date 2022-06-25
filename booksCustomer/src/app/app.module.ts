@@ -15,6 +15,11 @@ import { BookListComponent } from './Components/book-list/book-list.component';
 import { BookDetailComponent } from './Components/book-detail/book-detail.component';
 import { UserDetailComponent } from './Components/user-detail/user-detail.component';
 import { SortDirective } from './directive/sort.directive';
+import { UserListComponent } from './Components/user-list/user-list.component';
+import { PaiementComponent } from './Components/paiement/paiement.component';
+import { CommandeComponent } from './Components/commande/commande.component';
+import { CommandeListComponent } from './Components/commande-list/commande-list.component';
+import { BookDetailAdminComponent } from './Components/book-detail-admin/book-detail-admin.component';
 
 
 
@@ -28,7 +33,12 @@ import { SortDirective } from './directive/sort.directive';
     BookListComponent,
     BookDetailComponent,
     UserDetailComponent,
-    SortDirective
+    SortDirective,
+    UserListComponent,
+    PaiementComponent,
+    CommandeComponent,
+    CommandeListComponent,
+    BookDetailAdminComponent
   ],
   imports: [
     BrowserModule,

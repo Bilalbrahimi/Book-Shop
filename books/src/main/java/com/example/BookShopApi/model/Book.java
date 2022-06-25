@@ -37,6 +37,39 @@ public class Book {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private byte[] image;
 
+    private String author;
+    private String editor;
+    private String ean;
+
+
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getEditor() {
+        return editor;
+    }
+
+    public void setEditor(String editor) {
+        this.editor = editor;
+    }
+
+    public String getEan() {
+        return ean;
+    }
+
+    public void setEan(String ean) {
+        this.ean = ean;
+    }
+
+
+
+
     public Book() {
     }
 
@@ -109,5 +142,6 @@ public class Book {
     public void setImage(byte[] image) {
         this.image = image;
     }
+
 }
 

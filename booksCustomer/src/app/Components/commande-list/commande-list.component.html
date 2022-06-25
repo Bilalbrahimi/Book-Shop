@@ -1,0 +1,39 @@
+
+
+<div class="mx-5" style="margin-top: 5rem;">
+
+
+    <h1>Commandes</h1>
+  
+    <table id="example" class="table table-striped  table-hover table-fixed">
+      <thead class="thead-dark">
+  
+          <tr>
+              <th scope="col" >Date</th>
+              <th scope="col" >Non d'utlisateur</th>
+              <th scope="col" data-order="desc" data-name="quantity">Email<i class="fa fa-unsorted" disabled></i></th>
+              <th scope="col" data-order="desc" data-name="addedOn">Addresse<i class="fa fa-unsorted" disabled></i></th>
+              <th scope="col" data-order="desc" data-name="totalPrice">Total<i class="fa fa-unsorted" disabled></i></th>
+              <th scope="col" >Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let c of commandes; let i = index" >
+              <td class="text-center">{{ c.date| date: 'dd/MM/YYYY'}}</td>
+              <td class="text-center">{{ c.userName }}</td>
+              <td class="text-center">{{ c.name }}</td>
+              <td class="text-center">{{c.adresse}}</td>
+              <td class="text-center">{{c.totalPrice}}</td>
+              <td class="text-center">
+                <div class="text-center">
+                  <button  id="btnToDetail " class="btn btn-success btn-sm " >Détail</button>
+                  
+                  <button  id="btnToDelete" class="btn btn-danger btn-sm" (click)="deleteCommande(c)">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>                          
+                  </button>
+                </div>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>

@@ -1,46 +1,36 @@
-<div class="px-5 py-5">
-    <style>
-        .book-img-container {
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-image: url("../../../assets/static/images/book-placeholder.png");
-            height: 500px;
-            width: 500px;
-        }
-    </style>
-    <div class="d-flex m-5">
-        <div 
-            class="book-img-container mx-5" 
-            *ngIf="book != undefined"
-            [style.backgroundImage]="'url(' + book.imageUrl + ')'"
-        ></div>
-        <div 
-            *ngIf="book != undefined"
-            class="col-6 rounded px-5 pt-5 pb-3" 
-            style="border: 1px solid white;"
-        >
-            <h2>{{ book.name }}</h2>
-            <p class="text-muted">Added on {{ book.addedOn | date: 'MMM d'}}</p>
-            <div class="d-flex mt-5" style="justify-content: space-between; align-items: center;">
-                <h1>${{ book.price }}</h1>
-                <button 
-                    *ngIf="!isBookInCart" 
-                    class="btn btn-success" 
-                    [disabled]="!user" 
-                    (click)="addToCart()"
-                >Add to cart</button>
-                <button *ngIf="isBookInCart" class="btn btn-secondary" disabled>In cart</button>
+<div class="container">
+    <div class="card" *ngIf="book != undefined" >
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6">
+                    <div class="preview-pic tab-content">
+                      <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
+                    </div>
+                </div>
+                <div class="details col-md-6">
+                    <h3 class="product-title">{{ book.name }}</h3>
+                    <p class="text-muted">Added on {{ book.addedOn | date: 'MMM d'}}</p>
+                    <h4 class="price">editor: <span>{{ book.editor }}</span></h4>
+                    <p class="product-description">{{ book.description }}</p>
+                    <h4 class="price">current price: <span>${{ book.price }}</span></h4>
+                    <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+
+                    <h5 class="colors">colors:
+                    </h5>
+                    <div class="action">
+                        <button *ngIf="!isBookInCart" class="btn btn-success" [disabled]="!user" (click)="addToCart()">
+                            Add to cart
+                        </button>
+                        <button *ngIf="isBookInCart" class="btn btn-secondary" disabled>In cart</button>
+
+                    </div>
+                </div>
             </div>
-            <h5 class="my-4">Description</h5>
-            <p style="text-align: justify; font-size: 14px;">
-                {{ book.description }}
-            </p>
         </div>
-        <h1 
-            *ngIf="book == undefined"
-            class="mx-auto" 
-            style="text-align: center; margin-top: 10rem;"
-        >Book not found</h1>
     </div>
+    <h1 *ngIf="book == undefined" class="mx-auto" style="text-align: center; margin-top: 10rem;">
+        Book not found
+    </h1>
+
 </div>
+

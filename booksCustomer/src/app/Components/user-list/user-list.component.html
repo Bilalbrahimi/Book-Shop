@@ -1,0 +1,49 @@
+<br/>
+<h1>Liste des clients</h1>
+
+
+
+<br/><br/>
+
+
+<div class="row">
+    <table id="example" class="table table-striped  table-hover table-fixed">
+        <thead class="thead-dark">
+
+            <tr>
+                <th scope="col" [appSort]="users" data-order="desc" data-name="username">Nom d'utilisateur<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" [appSort]="users" data-order="desc" data-name="name">Nom<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" [appSort]="users" data-order="desc" data-name="email">Email<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" [appSort]="users" data-order="desc" data-name="address">Adresse<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" [appSort]="users" data-order="desc" data-name="phone">N° Mobile<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col">Suppression</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users ">
+                <td *ngIf="!user.admin" class="text-center">{{ user.username }}</td>
+                <td *ngIf="!user.admin" class="text-center">{{ user.name }}</td>
+                <td *ngIf="!user.admin" class="text-center">{{ user.email}}</td>
+                <td *ngIf="!user.admin" class="text-center">{{ user.address}}</td>
+                <td *ngIf="!user.admin" class="text-center">{{ user.phone}}</td>
+                <td *ngIf="!user.admin" >
+                    <div class="text-center">
+                        <button (click)="deleteUser(user.id)" class="btn btn-sm btn-danger ">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+
+
+
+
+
+</div>

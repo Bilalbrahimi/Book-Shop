@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartItem } from 'src/app/models/cart-item';
+import { Commande } from 'src/app/models/commande';
 import { User } from 'src/app/models/user';
 
 import { CartItemsService } from 'src/app/services/cart-items.service';
+import { CommandeService } from 'src/app/services/commande.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -20,7 +22,7 @@ export class CartComponent implements OnInit {
     constructor(
         private router : Router, 
         private usersService : UsersService,
-        private cartItemsService : CartItemsService
+        private cartItemsService : CartItemsService,
     ) { }
 
     ngOnInit(): void {
@@ -32,9 +34,11 @@ export class CartComponent implements OnInit {
         this.usersService.getUserByToken().subscribe((user : User) => {
             this.user = user;
             this.getItems()
+            
         }, (error : ErrorEvent) => {
             console.log(error)
         })
+        
     }
 
     getItems () {
@@ -80,4 +84,7 @@ export class CartComponent implements OnInit {
             this.getItems()
         })
     }
+
+
+
 }

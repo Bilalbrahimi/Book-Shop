@@ -3,8 +3,11 @@ package com.example.BookShopApi.model.cart;
 import javax.persistence.*;
 
 import com.example.BookShopApi.model.Book;
+import com.example.BookShopApi.model.Commande;
 import com.example.BookShopApi.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.persistence.*;
 import java.util.Date;
