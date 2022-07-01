@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +20,11 @@ import { UserListComponent } from './Components/user-list/user-list.component';
 import { PaiementComponent } from './Components/paiement/paiement.component';
 import { CommandeComponent } from './Components/commande/commande.component';
 import { CommandeListComponent } from './Components/commande-list/commande-list.component';
+import { BookListAdminComponent } from './Components/book-list-admin/book-list-admin.component';
 import { BookDetailAdminComponent } from './Components/book-detail-admin/book-detail-admin.component';
+import { HistoriqueClientComponent } from './Components/historique-client/historique-client.component';
+import { RegisterAdminComponent } from './Components/register-admin/register-admin.component';
+
 
 
 
@@ -38,7 +43,10 @@ import { BookDetailAdminComponent } from './Components/book-detail-admin/book-de
     PaiementComponent,
     CommandeComponent,
     CommandeListComponent,
-    BookDetailAdminComponent
+    BookListAdminComponent,
+    BookDetailAdminComponent,
+    HistoriqueClientComponent,
+    RegisterAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +55,7 @@ import { BookDetailAdminComponent } from './Components/book-detail-admin/book-de
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatRadioModule,
 
 
   ],

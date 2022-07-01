@@ -12,11 +12,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @RestController
 @CrossOrigin
@@ -68,7 +74,8 @@ public class APIController {
                 (String) user.get("email"),
                 (String) user.get("name"),
                 (String) user.get("address"),
-                (String) user.get("phone")
+                (String) user.get("phone"),
+                (Boolean) user.get("admin")
         );
 
         return new ResponseEntity<>(userService.updateUser(id, newUser), HttpStatus.OK);
@@ -172,6 +179,7 @@ public class APIController {
 
     @PostMapping(value = "/commande")
     Commande addCommande(@RequestBody Commande commande){
+
         return commandeService.createCommande(commande);
     }
 
@@ -183,5 +191,17 @@ public class APIController {
     @PutMapping("/commande/edit")
     void modifierCommande(@RequestBody Commande commande){
         this.commandeService.updateCommande(commande);
+    }
+
+    @PostMapping(value = "/upImg")
+    void uploadImage(@RequestParam MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
+        //this.evenementService.upImage(file);
+        byte[] bytes = file.getBytes();
+        Path path = Paths.get("./../booksCustomer/src/assets/images/" + file.getOriginalFilename());
+        Files.write(path, bytes);
+        path = Paths.get("./../booksCustomer/src/assets/images/" + file.getOriginalFilename());
+        Files.write(path, bytes);
+        redirectAttributes.addFlashAttribute("message",
+                "You successfully uploaded " + file.getOriginalFilename() + "!");
     }
 }

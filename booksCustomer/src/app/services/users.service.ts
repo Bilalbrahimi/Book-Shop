@@ -15,14 +15,28 @@ export class UsersService {
     constructor(private http : HttpClient) { }
 
     register (username : string, password : string, email : string, name : string, address : string, 
-        phone : string) : Observable<Token> {
+        phone : string, admin : boolean) : Observable<Token> {
         return this.http.post<Token>(`${this.apiUrl}/register`, {
             username,
             password,
             email,
             name,
             address,
-            phone
+            phone,
+            admin
+        })
+    }
+
+    registerAdmin (username : string, password : string, email : string, name : string, address : string, 
+        phone : string, admin : boolean) : Observable<Token> {
+        return this.http.post<Token>(`${this.apiUrl}/register`, {
+            username,
+            password,
+            email,
+            name,
+            address,
+            phone,
+            admin
         })
     }
 

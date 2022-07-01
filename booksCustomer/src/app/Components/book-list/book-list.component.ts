@@ -19,11 +19,6 @@ export class BookListComponent implements OnInit {
       this.booksService.getBooks().subscribe((books : Book[]) => {
           this.books = books
 
-          for (let book of this.books) {
-              book.imageUrl = book.image ? 'data:image/jpeg;base64,' + book.image :
-              "../../../assets/static/images/book-placeholder.png";
-              
-          }
       }, (error: ErrorEvent) => {
       })
   }

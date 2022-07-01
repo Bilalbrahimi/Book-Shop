@@ -32,7 +32,7 @@ public class Commande {
     }
 
     public void setQuantities(String quantities) {
-        quantities = quantities;
+        this.quantities = quantities;
     }
 
     @Column(nullable = false)

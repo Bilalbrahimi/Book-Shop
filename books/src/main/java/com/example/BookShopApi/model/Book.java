@@ -32,10 +32,8 @@ public class Book {
     @Column(nullable = false)
     private Date addedOn = new Date();
 
-    @Lob
     @Column(nullable = true, length = Integer.MAX_VALUE)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private byte[] image;
+    private String image;
 
     private String author;
     private String editor;
@@ -80,7 +78,7 @@ public class Book {
         this.price = price;
     }
 
-    public Book(String name, String description, double price, byte[]image) {
+    public Book(String name, String description, double price, String image) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -135,11 +133,11 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

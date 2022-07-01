@@ -57,13 +57,14 @@ public class User {
     public User () {
     }
 
-    public User (String username, String password, String email, String name, String address, String phone) {
+    public User (String username, String password, String email, String name, String address, String phone, boolean admin) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.name = name;
         this.address = address;
         this.phone = phone;
+        this.admin = admin;
         this.cartItems = new ArrayList<>();
     }
 
@@ -153,6 +154,7 @@ public class User {
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
                 ", cartItems=" + cartItems +
+                ", admin=" + admin +
                 '}';
     }
 }

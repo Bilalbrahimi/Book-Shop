@@ -9,7 +9,6 @@ export class Commande {
         public name : String, 
         public adresse : String, 
         public message : String, 
-        public quantity : number,
         public etat : number,
         public books : Book[],
         public lBooks : String,

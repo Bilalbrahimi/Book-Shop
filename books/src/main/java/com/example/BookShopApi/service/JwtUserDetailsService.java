@@ -33,8 +33,10 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     public User save (User user) {
         User newUser = new User(user.getUsername(), bcryptEncoder.encode(user.getPassword()), user.getEmail(),
-                user.getName(), user.getAddress(), user.getPhone());
+                user.getName(), user.getAddress(), user.getPhone(), user.isAdmin());
 
         return repo.save(newUser);
     }
+
+
 }

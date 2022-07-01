@@ -26,8 +26,6 @@ export class BookDetailComponent implements OnInit {
   ngOnInit(): void {
       this.booksService.getBook(this.route.snapshot.paramMap.get('id') as string).subscribe((book : Book) => {
           this.book = book
-          this.book.imageUrl = book.image ? 'data:image/jpeg;base64,' + book.image :
-          "../../../assets/static/images/book-placeholder.png";
       }, (error: ErrorEvent) => {
           console.log(this.book);
       })

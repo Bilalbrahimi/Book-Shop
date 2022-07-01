@@ -19,7 +19,7 @@ tbody {
 
 tbody td,
 thead th {
-    width: 50%;
+    width: 25%;
     height: 50px;
     float: left;
 }

@@ -53,7 +53,8 @@ public class JwtAuthenticationController {
                 (String) user.get("email"),
                 (String) user.get("name"),
                 (String) user.get("address"),
-                (String) user.get("phone")
+                (String) user.get("phone"),
+                (Boolean) user.get("admin")
         );
 
         if (newUser.getUsername() == null) {

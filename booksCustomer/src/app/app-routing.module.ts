@@ -10,12 +10,16 @@ import { UserListComponent } from './Components/user-list/user-list.component';
 import { PaiementComponent } from './Components/paiement/paiement.component';
 import { CommandeComponent } from './Components/commande/commande.component';
 import { CommandeListComponent } from './Components/commande-list/commande-list.component';
+import { BookListAdminComponent } from './Components/book-list-admin/book-list-admin.component';
 import { BookDetailAdminComponent } from './Components/book-detail-admin/book-detail-admin.component';
+import { HistoriqueClientComponent } from './Components/historique-client/historique-client.component';
+import { RegisterAdminComponent } from './Components/register-admin/register-admin.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'register', component: RegisterComponent},
+  {path: 'registerAdmin', component: RegisterAdminComponent},
   {path: 'login', component: LoginComponent},
   {path: 'shop', component: BookListComponent},
   {path: 'shop/:term', component: BookListComponent},
@@ -24,9 +28,11 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent},
   {path: 'users', component: UserListComponent},
   {path: 'paiement', component: PaiementComponent},
-  {path: 'commande', component: CommandeComponent},
+  {path: 'commande/:id', component: CommandeComponent},
   {path: 'commandeList', component: CommandeListComponent},
-  {path: 'addBook', component: BookDetailAdminComponent}
+  {path: 'addBook', component: BookListAdminComponent},
+  {path: 'bookDetailAdmin/:id', component: BookDetailAdminComponent},
+  {path: 'historique', component: HistoriqueClientComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,35 @@
+<div class="mx-5" style="margin-top: 5rem;">
+
+
+    <h1>Mes Commandes</h1>
+
+    <table id="example" class="table table-striped  table-hover table-fixed">
+        <thead class="thead-dark">
+
+            <tr>
+                <th scope="col" data-order="desc" data-name="date">Date<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" data-order="desc" data-name="totalPrice">Total<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" data-order="desc" data-name="etat">Etat<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of commandes; let i = index">
+                <td class="text-center">{{ c.date| date: 'dd/MM/YYYY'}}</td>
+                <td class="text-center">{{c.totalPrice| number: '1.2-2'}} €</td>
+                <td class="text-center">
+                    <div class="text-center" [ngSwitch]="c.etat">
+                        <button type="button" *ngSwitchCase="0" class="btn btn-outline-primary" disabled>En préparation</button>
+                        <button type="button" *ngSwitchCase="1" class="btn btn-outline-secondary" disabled>Préparée</button>
+                        <button type="button" *ngSwitchCase="2" class="btn btn-outline-warning" disabled>En Route</button>
+                        <button type="button" *ngSwitchCase="3" class="btn btn-outline-success" disabled>Reçue</button>
+
+                    </div>
+                </td>
+                <td class="text-center">
+                    <button id="btnToDetail " class="btn btn-success btn-sm " routerLink="/commande/{{ c.commandeId }}">Détail</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

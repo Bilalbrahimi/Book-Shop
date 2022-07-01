@@ -1,32 +1,32 @@
 <br><br><br><br><br>
 <div class="container  justify-content-center mt-5 mb-5">
 
-            
+
 
     <div class="row g-3">
 
-      <div class="col-md-6">  
-        
-        <span>Methode de paiement</span>
-        <div class="card">
+        <div class="col-md-6">
 
-          <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <span>Methode de paiement</span>
+            <div class="card">
+
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     <span>Paypal</span>
                       <img src="https://i.imgur.com/7kQEsHU.png" width="30">
                   </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="card-body">
-                        <input type="text" class="form-control" placeholder="Paypal email">
-                    </div>  
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="card-body">
+                                <input type="text" class="form-control" placeholder="Paypal email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     <div class="d-flex align-items-center justify-content-between">
 
                         <span>Credit card</span>
@@ -39,93 +39,93 @@
                         
                       </div>
                   </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div class="card-body payment-card-body">
-                  
-                        <span class="font-weight-normal card-text">N° de carte</span>
-                        <div class="input">
-      
-                          <i class="fa fa-credit-card"></i>
-                          <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
-                          
-                        </div> 
-      
-                        <div class="row mt-3 mb-3">
-      
-                          <div class="col-md-6">
-      
-                            <span class="font-weight-normal card-text">Date d'expiration</span>
-                            <div class="input">
-      
-                              <i class="fa fa-calendar"></i>
-                              <input type="text" class="form-control" placeholder="MM/YY">
-                              
-                            </div> 
-                            
-                          </div>
-      
-      
-                          <div class="col-md-6">
-      
-                            <span class="font-weight-normal card-text">CVC/CVV</span>
-                            <div class="input">
-      
-                              <i class="fa fa-lock"></i>
-                              <input type="text" class="form-control" placeholder="000">
-                              
-                            </div> 
-                            
-                          </div>
-                          
-      
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="card-body payment-card-body">
+
+                                <span class="font-weight-normal card-text">N° de carte</span>
+                                <div class="input">
+
+                                    <i class="fa fa-credit-card"></i>
+                                    <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
+
+                                </div>
+
+                                <div class="row mt-3 mb-3">
+
+                                    <div class="col-md-6">
+
+                                        <span class="font-weight-normal card-text">Date d'expiration</span>
+                                        <div class="input">
+
+                                            <i class="fa fa-calendar"></i>
+                                            <input type="text" class="form-control" placeholder="MM/YY">
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-md-6">
+
+                                        <span class="font-weight-normal card-text">CVC/CVV</span>
+                                        <div class="input">
+
+                                            <i class="fa fa-lock"></i>
+                                            <input type="text" class="form-control" placeholder="000">
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                                <span class="text-muted certificate-text"><i class="fa fa-lock"></i> Transaction securisée</span>
+
+                            </div>
                         </div>
-      
-                        <span class="text-muted certificate-text"><i class="fa fa-lock"></i> Transaction securisée</span>
-                       
-                      </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <span>Résumé</span>
+
+            <div class="card">
+
+                <div *ngFor="let item of cartItems; let i = index" class="d-flex justify-content-between p-3">
+
+                    <div class="d-flex flex-column">
+                        <span>{{item.book.name}} X {{item.quantity}}</span>
+                        <span class="super-month">{{item.book.author}}</span>
+                    </div>
+
+                    <div class="mt-1">
+                        <sup class="super-price">{{item.totalPrice}} €</sup>
+
+                    </div>
+
+                </div>
+
+                <hr class="mt-0 line">
+
+
+                <div class="p-3 d-flex justify-content-between">
+                    <div class="d-flex flex-column">
+                        <span>Total :</span>
+                    </div>
+                    <span>{{getTotal()}} €</span>
+                </div>
+                <div class="p-3">
+                    <button class="btn btn-primary btn-block free-button" (click)="payer()" routerLink="../historique">Payer {{getTotal()}} €</button>
                 </div>
             </div>
-            
         </div>
-          
+
     </div>
-
-      </div>
-
-      <div class="col-md-6">
-          <span>Résumé</span>
-
-          <div class="card">
-
-            <div *ngFor="let item of cartItems; let i = index" class="d-flex justify-content-between p-3">
-
-              <div class="d-flex flex-column">
-                <span>{{item.book.name}} X {{item.quantity}}</span>
-                <span class="super-month">{{item.book.author}}</span>
-              </div>
-
-              <div class="mt-1">
-                <sup class="super-price">{{item.totalPrice}} €</sup>
-                
-              </div>
-              
-            </div>
-
-            <hr class="mt-0 line">
-
-
-            <div class="p-3 d-flex justify-content-between">
-              <div class="d-flex flex-column">
-                <span>Total :</span>
-              </div>
-              <span>{{getTotal()}} €</span>
-            </div>
-            <div class="p-3">
-                <button class="btn btn-primary btn-block free-button" (click)="payer()" routerLink="../commandeList">Payer {{getTotal()}} €</button> 
-            </div>
-          </div>
-      </div>
-      
-    </div>
-  </div>
+</div>

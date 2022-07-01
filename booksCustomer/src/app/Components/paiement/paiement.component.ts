@@ -60,15 +60,16 @@ deleteItem(item : CartItem){
 }
 
 payer(){
-  this.cmd = new Commande(0,new Date(),"","","","",0,0,[],"","",0);
+  this.cmd = new Commande(0,new Date(),"","","","",0,[],"","",0);
   this.cmd.userName = this.user.username;
   this.cmd.name = this.user.email;
   this.cmd.adresse = this.user.address;
   this.cmd.totalPrice = this.getTotal();
 
   this.cartItems.forEach((item) =>{
-    this.cmd.lBooks+=item.book.name+"_";
-    this.cmd.quantities+=item.quantity.toString()+"_";
+    this.cmd.quantities+=item.quantity+"_";
+    this.cmd.lBooks+=item.book.name+"_"+item.quantity;
+    
   });
   this.commandeService.addCommande(this.cmd).subscribe(res => {
       console.log(this.cmd)
