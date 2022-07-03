@@ -4,47 +4,43 @@
             box-shadow: 5px 5px 20px #000;
         }
     </style>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-12 px-5 mb-5 fixed-top">
-        <div class="logo">
-            <img src="https://www.decitre.fr/skin/frontend/decitre/default/images/logo.png" class="hide-on-responsive">
-        </div>
-        <a class="navbar-brand" href="#">ShopApp</a>
-        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto" style="flex-grow: 1;">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="shop">Shop</a>
-                </li>
-                <li *ngIf="!isTokenThere" class="nav-item">
-                    <a class="nav-link" routerLink="register">Register</a>
-                </li>
-                <li *ngIf="!isTokenThere" class="nav-item">
-                    <a class="nav-link" routerLink="login">Login</a>
-                </li>
-                <li *ngIf="isTokenThere" class="nav-item">
-                    <a class="nav-link" routerLink="historique">Mes Commandes</a>
-                </li>
-
-            </ul>
-            <form *ngIf="isTokenThere" class="form-inline my-2 my-lg-0 d-flex" (submit)="search()">
-
-                <a class="btn btn-primary" aria-label="Panier" routerLink="account">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                </a>
-
-                <button type="button" class="btn btn-primary position-relative" aria-label="Panier" routerLink="cart">
-              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                {{user.cartItems.length}}
-                <span class="visually-hidden">unread messages</span>
-              </span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a href="shop" class="navbar-brand">
+                <img src="../assets/images/logo21.png" width="150" height="50" alt="">
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a *ngIf="!isTokenThere" class="nav-item nav-link" routerLink="register">Register</a>
+                    <a *ngIf="!isTokenThere" class="nav-item nav-link" routerLink="login">Login</a>
+                    <a *ngIf="isTokenThere" class="nav-item nav-link" routerLink="historique">Mes Commandes</a>
+                    <a class="nav-item nav-link" routerLink="aPropos">A Propos</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <form id="search" class="d-flex input-group w-auto">
+                        <input type="search" class="form-control" placeholder="Recherche..." aria-label="Search" />
+                        <button class="btn btn-outline-success" (submit)="search()" type="button" data-mdb-ripple-color="dark">
+                          Rechercher
+                        </button>
+                    </form>
+                    <a *ngIf="isTokenThere" class="btn btn-outline-light btn-floating m-1" aria-label="cart" routerLink="cart">
+                        <span class="badge bg-danger ms-2">{{user.cartItems.length}}</span>
+                        <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+                    </a>
+                    <a *ngIf="!isTokenThere" class="btn btn-outline-light btn-floating m-1" aria-label="account" routerLink="account">
+                        <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                    </a>
+                    <a *ngIf="isTokenThere" class="btn btn-outline-light btn-floating m-1" aria-label="account" routerLink="account">
+                        <i class="fa fa-user fa-2x" aria-hidden="true"></i> {{user.username}}
+                    </a>
 
-            </form>
+
+                </div>
+            </div>
         </div>
     </nav>
     <router-outlet></router-outlet>
@@ -56,42 +52,36 @@
             box-shadow: 5px 5px 20px #000;
         }
     </style>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-12 px-5 mb-5 fixed-top">
-        <a class="navbar-brand" href="#">BookShop-Admin</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-        <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto" style="flex-grow: 1;">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="shop">Apparence Vente</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="shop">Mise en Vente</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="users">Clients</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="shop">Commandes</a>
-                </li>
-
-
-
-
-            </ul>
-            <form *ngIf="isTokenThere" class="form-inline my-2 my-lg-0 d-flex" (submit)="search()">
-
-                <a class="btn btn-primary" aria-label="Panier" routerLink="account">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                </a>
-
-            </form>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a href="shop" class="navbar-brand">
+                <img src="../assets/images/logo21.png" width="150" height="50" alt=""> - Admin
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="#" class="nav-item nav-link" routerLink="addBook">Mise en Vente</a>
+                    <a href="#" class="nav-item nav-link" routerLink="users">Clients</a>
+                    <a href="#" class="nav-item nav-link" routerLink="commandeList">Commandes</a>
+                    <a class="nav-item nav-link" routerLink="aPropos">A Propos</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <form class="d-flex input-group w-auto">
+                        <input type="search" class="form-control" placeholder="Type query" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="button" data-mdb-ripple-color="dark">
+                              Search
+                            </button>
+                    </form>
+                    <a class="btn btn-outline-light btn-floating m-1" routerLink="account" role="button">
+                        <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
+
     <router-outlet></router-outlet>
 </div>

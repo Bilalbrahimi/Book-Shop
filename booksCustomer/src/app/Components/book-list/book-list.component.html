@@ -3,11 +3,81 @@
     <h1 class="mx-auto text-center" style="margin-bottom: 6rem;">Livres</h1>
     <div class="d-flex" style="justify-content: center; flex-wrap: wrap;">
 
-        <div *ngFor="let book of books; let i = index" class="card mb-3" style="width: 300px; height:500px ">
+
+
+
+
+
+
+
+
+        <div id="slides" class="carousel slide" data-ride="carousel" data-interval="3000">
+            <ul class="carousel-indicators">
+                <li data-target="#slides" data-slide-to="0" class="active"></li>
+                <li data-target="#slides" data-slide-to="1"></li>
+                <li data-target="#slides" data-slide-to="2"></li>
+                <li data-target="#slides" data-slide-to="3"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('images/logo_IFMO.png')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="display-4">We look forward to a better future.</h1>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('images/s2.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="display-4">We offer quality services to our customers.</h1>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('images/s3.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="display-4">We persistently evolve ourselves.</h1>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('images/s4.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="display-4">We persistently evolve ourselves.</h1>
+                    </div>
+                </div>
+
+                <a class="carousel-control-prev" href="#slides" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#slides" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div *ngFor="let book of books; let i = index" class="card mb-3" style="width: 320px; height:550px ">
             <div class="card card-body">
                 <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
                     <div class="mr-2 mb-3 mb-lg-0">
-                        <img src="../../../assets/images/{{book.image}}" width="150" height="150" alt="">
+                        <img src="../../../assets/images/{{book.image}}" width="240" height="240" alt="">
                     </div>
 
                     <div class="media-body">

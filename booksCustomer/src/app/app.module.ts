@@ -24,6 +24,9 @@ import { BookListAdminComponent } from './Components/book-list-admin/book-list-a
 import { BookDetailAdminComponent } from './Components/book-detail-admin/book-detail-admin.component';
 import { HistoriqueClientComponent } from './Components/historique-client/historique-client.component';
 import { RegisterAdminComponent } from './Components/register-admin/register-admin.component';
+import { CommandeClientComponent } from './Components/commande-client/commande-client.component';
+import { AproposDeNousComponent } from './Components/apropos-de-nous/apropos-de-nous.component';
+
 
 
 
@@ -46,7 +49,9 @@ import { RegisterAdminComponent } from './Components/register-admin/register-adm
     BookListAdminComponent,
     BookDetailAdminComponent,
     HistoriqueClientComponent,
-    RegisterAdminComponent
+    RegisterAdminComponent,
+    CommandeClientComponent,
+    AproposDeNousComponent
   ],
   imports: [
     BrowserModule,

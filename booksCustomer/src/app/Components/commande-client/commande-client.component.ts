@@ -5,14 +5,12 @@ import { Commande } from 'src/app/models/commande';
 import { CommandeService } from 'src/app/services/commande.service';
 import { UsersService } from 'src/app/services/users.service';
 
-
-
 @Component({
-  selector: 'app-commande',
-  templateUrl: './commande.component.html',
-  styleUrls: ['./commande.component.css']
+  selector: 'app-commande-client',
+  templateUrl: './commande-client.component.html',
+  styleUrls: ['./commande-client.component.css']
 })
-export class CommandeComponent implements OnInit {
+export class CommandeClientComponent implements OnInit {
 
   public commande : any
   public books:String[] = [];
@@ -52,5 +50,6 @@ export class CommandeComponent implements OnInit {
     resp.subscribe((data: any)=>this.commande_apr_etat=data);
     
   }
+
 
 }

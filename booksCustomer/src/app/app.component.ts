@@ -23,7 +23,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     if (!localStorage.getItem('token')) {
-        this.router.navigateByUrl('/login')
+        this.router.navigateByUrl('/shop')
         return
     }
 

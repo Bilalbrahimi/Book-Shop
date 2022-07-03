@@ -1,22 +1,16 @@
 <div id="loginContainer">
     <div class="loginBox"> <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
-        <h3>Login</h3>
+        <h3>Connexion</h3>
         <form method="post" (submit)="logIn()">
-            <div class="inputBox"> 
-                <input id="username" type="text" name="Username" placeholder="Username" [(ngModel)]="username"> 
-                <input id="password" type="password" name="Password" placeholder="Password" [(ngModel)]="password"> 
-            </div> 
-            <input type="submit" name="" value="Login">
-            <h4 
-                *ngIf="error"
-                style="text-align: center;" 
-                class="alert-danger p-2 m-5 rounded"
-            >{{error}}</h4>
-        </form> 
-        <a href="#">Forget Password<br> </a>
-        <div class="text-center">
-            <p style="color: #59238F;">Sign-Up</p>
-        </div>
-        
+            <div class="inputBox">
+                <input id="username" type="text" name="Username" placeholder="Nom d'utilisateur" [(ngModel)]="username">
+                <input id="password" type="password" name="Password" placeholder="Mot de pass" [(ngModel)]="password">
+            </div>
+            <input type="submit" name="" value="Se Connecter">
+            <button type="button" *ngIf="error" class="btn btn-outline-danger" disabled>{{error}}</button>
+
+        </form>
+        <br><a routerLink="../register" style="color: #59238F;">Inscription<br> </a>
+
     </div>
 </div>

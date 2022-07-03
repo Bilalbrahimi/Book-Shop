@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
                 this.router.navigateByUrl('/shop').then(() => window.location.reload())
             }, (error : ErrorEvent) => {
                 console.log(error);
-                this.error = "Invalid login credentials"
+                this.error = "Nom d'utilisateur ou mot de pass incorrect"
             })
         
     }

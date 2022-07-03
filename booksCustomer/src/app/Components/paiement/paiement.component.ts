@@ -68,7 +68,7 @@ payer(){
 
   this.cartItems.forEach((item) =>{
     this.cmd.quantities+=item.quantity+"_";
-    this.cmd.lBooks+=item.book.name+"_"+item.quantity;
+    this.cmd.lBooks+=item.book.name+"_";
     
   });
   this.commandeService.addCommande(this.cmd).subscribe(res => {

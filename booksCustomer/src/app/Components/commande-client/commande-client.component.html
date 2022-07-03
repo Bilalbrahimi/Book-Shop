@@ -1,0 +1,34 @@
+<div class="mx-5" style="margin-top: 5rem;">
+
+
+    <h1>Commande </h1>
+    <br/>
+    <h4>Date: {{ this.commande.date| date: 'dd/MM/YYYY'}}</h4>
+
+    <h4>Adresse de Livraison: {{ this.commande.adresse }}</h4>
+
+    <h4>Total: {{ this.commande.totalPrice | number: '1.2-2'}} €</h4>
+
+    <div class="text-left" [ngSwitch]="this.commande.etat">
+        <button type="button" *ngSwitchCase="0" class="btn btn-outline-primary" disabled>En préparation</button>
+        <button type="button" *ngSwitchCase="1" class="btn btn-outline-secondary" disabled>Préparée</button>
+        <button type="button" *ngSwitchCase="2" class="btn btn-outline-warning" disabled>En Route</button>
+        <button type="button" *ngSwitchCase="3" class="btn btn-outline-success" disabled>Reçue</button>
+
+    </div>
+
+    <table id="example" class="table table-striped  table-hover table-fixed">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" data-order="desc" data-name="date">Livre</th>
+                <th scope="col" data-order="desc" data-name="userName">Quantité</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of books; let i = index">
+                <td class="text-center">{{ b }}</td>
+                <td class="text-center">{{ quantities[i]}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

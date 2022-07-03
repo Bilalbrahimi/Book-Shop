@@ -7,7 +7,7 @@
     <h4>Client: {{ this.commande.userName }}</h4>
     <h4>Adresse: {{ this.commande.adresse }}</h4>
 
-    <h4>Total: {{ this.commande.totalPrice}}</h4>
+    <h4>Total: {{ this.commande.totalPrice | number: '1.2-2'}} €</h4>
 
     <div [ngSwitch]="commande.etat">
         <div id="1" *ngSwitchCase="0">
@@ -96,7 +96,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let b of books; let i = index">
-                <td class="text-center">{{i}}--{{ b }}</td>
+                <td class="text-center">{{ b }}</td>
                 <td class="text-center">{{ quantities[i]}}</td>
             </tr>
         </tbody>

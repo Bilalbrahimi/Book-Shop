@@ -1,3 +1,12 @@
-a.btn{
+a.btn {
     margin: 0.4em;
+}
+
+.bar_nav {
+    border-top: 5px solid #E0222C;
+    position: relative;
+    margin-bottom: 30px;
+    font-weight: 600;
+    left: 0;
+    right: 0;
 }

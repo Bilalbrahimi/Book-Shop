@@ -7,12 +7,12 @@
         <thead class="thead-dark">
 
             <tr>
-                <th scope="col" data-order="desc" data-name="username">Nom d'utilisateur<i class="fa fa-unsorted" disabled></i></th>
                 <th scope="col" [appSort]="commandes" data-order="desc" data-name="date">Date<i class="fa fa-unsorted" disabled></i></th>
                 <th scope="col" [appSort]="commandes" data-order="desc" data-name="userName">Non d'utlisateur<i class="fa fa-unsorted" disabled></i></th>
-                <th scope="col" [appSort]="commandes" data-order="desc" data-name="quantity">Email<i class="fa fa-unsorted" disabled></i></th>
-                <th scope="col" [appSort]="commandes" data-order="desc" data-name="addedOn">Addresse<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" [appSort]="commandes" data-order="desc" data-name="name">Email<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" [appSort]="commandes" data-order="desc" data-name="adresse">Addresse<i class="fa fa-unsorted" disabled></i></th>
                 <th scope="col" [appSort]="commandes" data-order="desc" data-name="totalPrice">Total<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" [appSort]="commandes" data-order="desc" data-name="etat">Etat<i class="fa fa-unsorted" disabled></i></th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -23,6 +23,15 @@
                 <td class="text-center">{{ c.name }}</td>
                 <td class="text-center">{{c.adresse}}</td>
                 <td class="text-center">{{c.totalPrice| number: '1.2-2'}} €</td>
+                <td class="text-center">
+                    <div class="text-center" [ngSwitch]="c.etat">
+                        <button type="button" *ngSwitchCase="0" class="btn btn-outline-primary" disabled>Payée</button>
+                        <button type="button" *ngSwitchCase="1" class="btn btn-outline-secondary" disabled>Préparée</button>
+                        <button type="button" *ngSwitchCase="2" class="btn btn-outline-warning" disabled>Envoyée</button>
+                        <button type="button" *ngSwitchCase="3" class="btn btn-outline-success" disabled>Reçue par le client</button>
+
+                    </div>
+                </td>
                 <td class="text-center">
                     <div class="text-center">
                         <button id="btnToDetail " class="btn btn-success btn-sm " routerLink="/commande/{{ c.commandeId }}">Détail</button>
