@@ -36,7 +36,8 @@ const routes: Routes = [
   {path: 'bookDetailAdmin/:id', component: BookDetailAdminComponent},
   {path: 'historique', component: HistoriqueClientComponent},
   {path: 'commandeClient/:id', component: CommandeClientComponent},
-  {path: 'aPropos', component: AproposDeNousComponent}
+  {path: 'aPropos', component: AproposDeNousComponent},
+  {path: 'adminList', component: RegisterAdminComponent}
 ];
 
 @NgModule({

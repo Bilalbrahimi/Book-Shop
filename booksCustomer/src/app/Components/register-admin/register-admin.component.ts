@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Token } from 'src/app/models/token';
+import { User } from 'src/app/models/user';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -16,15 +17,15 @@ export class RegisterAdminComponent implements OnInit {
   public address : any;
   public phone : any;
   public name : any;
-
+  users: User[] = [];
+  
   public error : any
 
   constructor(private usersService : UsersService, private router : Router) { }
 
   ngOnInit(): void {
-      if (localStorage.getItem('token')) {
-          this.router.navigateByUrl('/account')
-      }
+
+      this.getUsers();
   }
 
   register () {
@@ -33,22 +34,27 @@ export class RegisterAdminComponent implements OnInit {
       this.error = ''
 
       if (!this.email || !this.email.match(emailRegex)) {
-          this.error = "Email is not valid"
+          this.error = "L'adresse mail n'est pas valide ! "
           return
       }
 
-      if (this.password != this.passwordConfirm) {
-          this.error = "Passwords do not match"
-          return
-      }
+      this.password = this.email;
+      this.passwordConfirm = this.email;
+
 
       this.usersService.registerAdmin(
           this.username, this.password, this.email, this.email, this.address, this.phone, true).subscribe((token : Token) => {
               localStorage.setItem('token', token.token);
-              this.router.navigateByUrl('/account').then(() => window.location.reload())
+              this.router.navigateByUrl('/adminList').then(() => window.location.reload())
           }, (error : ErrorEvent) => {
               this.error = error.error
           })
+  }
+  
+  getUsers(){
+    this.usersService.getUsers()
+    .subscribe(usr => this.users = usr)
+    
   }
 
 }

@@ -50,7 +50,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <br/>
-                                <input [(ngModel)]="newBook.price" [ngModelOptions]="{standalone: true}" name="prix" type="number" class="form-control" id="price" placeholder="Prix">
+                                <input [(ngModel)]="newBook.price" [ngModelOptions]="{standalone: true}" name="prix" type="number" class="form-control" id="price" placeholder="Prix"> Prix: {{ newBook.price| number: '1.2-2' }} €
                             </div>
                             <div class="form-group col-md-4">
                                 <br/>
@@ -82,7 +82,6 @@
 
     <table id="example" class="table table-striped  table-hover table-fixed">
         <thead class="thead-dark">
-
             <tr>
                 <th scope="col" [appSort]="books" data-order="desc" data-name="isbn">ISBN<i class="fa fa-unsorted" disabled></i></th>
                 <th scope="col" [appSort]="books" data-order="desc" data-name="ean">EAN<i class="fa fa-unsorted" disabled></i></th>
@@ -103,7 +102,7 @@
                 <td class="text-center">{{ book.author }}</td>
                 <td class="text-center">{{ book.editor }}</td>
                 <td class="text-center">{{ book.addedOn | date: 'dd/MM/YYYY'}}</td>
-                <td class="text-center">{{ book.price }}</td>
+                <td class="text-center">{{ book.price| number: '1.2-2' }} €</td>
                 <td tyle="width: 5.0%">
                     <div class="text-center">
                         <button class="btn btn-success btn-sm" routerLink="/bookDetailAdmin/{{ book.id }}" data-whatever="@getbootstrap">

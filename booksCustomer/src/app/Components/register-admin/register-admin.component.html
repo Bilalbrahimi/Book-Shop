@@ -1,85 +1,109 @@
-<section class="vh-100" style="background-color: #eee;">
-    <div class="container h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-lg-12 col-xl-11">
-                <div class="card text-black" style="border-radius: 25px;">
-                    <div class="card-body p-md-5">
-                        <div class="row justify-content-center">
-                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Nouvel Admin</p>
-
-                                <form class="mx-1 mx-md-4" action="" (submit)="register()">
-
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fa fa-user fa-3x" aria-hidden="true"></i>
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input name="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" type="text" placeholder="Nom d'utilisateur" id="form3Example1c" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fa fa-user fa-3x" aria-hidden="true"></i>
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input name="name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" type="text" placeholder="Nom" id="form3Example8c" class="form-control" />
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input name="email" type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" placeholder="Email" id="form3Example2c" class="form-control" />
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input name="password" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" placeholder="Mot de pass" id="form3Example6c" class="form-control" />
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input name="confirmPassword" type="password" [(ngModel)]="passwordConfirm" [ngModelOptions]="{standalone: true}" placeholder="Confirmation de mot de pass" id="form3Example7c" class="form-control" />
-                                        </div>
-                                    </div>
-
-
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fa fa-map-marker fa-3x" aria-hidden="true"></i>
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input type="address" [(ngModel)]="address" [ngModelOptions]="{standalone: true}" placeholder="Addresse" id="form3Example3c" class="form-control" />
-                                        </div>
-                                    </div>
-
-
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" placeholder="Téléphone" type="text" id="form3Example4c" class="form-control" />
-                                        </div>
-                                    </div>
+<br/>
+<h1>Liste des Administrateurs
+</h1>
 
 
 
-                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button class="btn btn-success" style="margin-right: 0.6rem;" type="submit" value="Register">S'inscrire</button>
-                                        <h4 *ngIf="error" style="text-align: center;" class="alert-danger p-2 m-5 rounded">{{error}}</h4>
-                                    </div>
+<br/><br/>
+<button type="button" class="btn btn-warning btn-2x" data-toggle="modal" data-target="#NouveauEtudiant" data-whatever="@getbootstrap">
+    <i class="fa fa-user-plus fa-2x" aria-hidden="true"></i> Admin
+</button>
 
-                                </form>
+<br/><br/>
+<div class="modal fade bd-example-modal-xl" id="NouveauEtudiant" tabindex="-1" role="dialog" aria-labelledby="NouveauEtudiantLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="NouveauEtudiantLabel">Ajouter un Nouvel Admin</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-                            </div>
-                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image">
+            <div class="modal-body">
+                <form class="mx-1 mx-md-4" action="" (submit)="register()">
 
-                            </div>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+                        <div class="form-outline flex-fill mb-0">
+                            <input name="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" type="text" placeholder="Nom d'utilisateur" id="form3Example1c" class="form-control" required/>
                         </div>
                     </div>
-                </div>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+                        <div class="form-outline flex-fill mb-0">
+                            <input name="name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" type="text" placeholder="Nom" id="form3Example8c" class="form-control" required/>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+                        <div class="form-outline flex-fill mb-0">
+                            <input name="email" type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" placeholder="Email" id="form3Example2c" class="form-control" required/>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fa fa-map-marker fa-3x" aria-hidden="true"></i>
+                        <div class="form-outline flex-fill mb-0">
+                            <input type="address" [(ngModel)]="address" [ngModelOptions]="{standalone: true}" placeholder="Addresse" id="form3Example3c" class="form-control" required/>
+                        </div>
+                    </div>
+
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+                        <div class="form-outline flex-fill mb-0">
+                            <input [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" placeholder="Téléphone" type="text" id="form3Example4c" class="form-control" required/>
+                        </div>
+                    </div>
+
+
+
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                        <button type="button" *ngIf="error" class="btn btn-outline-danger" disabled>{{error}}</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+
+                <button class="btn btn-primary" style="margin-right: 0.6rem;" type="submit" (click)="register()" value="Register">S'inscrire</button>
             </div>
         </div>
     </div>
-</section>
+</div>
+
+<div class="row">
+    <table id="example" class="table table-striped  table-hover table-fixed">
+        <thead class="thead-dark">
+
+            <tr>
+                <th scope="col" [appSort]="users" data-order="desc" data-name="username">Nom d'utilisateur<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" [appSort]="users" data-order="desc" data-name="name">Nom<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" [appSort]="users" data-order="desc" data-name="email">Email<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" [appSort]="users" data-order="desc" data-name="address">Adresse<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" [appSort]="users" data-order="desc" data-name="phone">N° Mobile<i class="fa fa-unsorted" disabled></i></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users ">
+                <td *ngIf="user.admin" class="text-center">{{ user.username }}</td>
+                <td *ngIf="user.admin" class="text-center">{{ user.name }}</td>
+                <td *ngIf="user.admin" class="text-center">{{ user.email}}</td>
+                <td *ngIf="user.admin" class="text-center">{{ user.address}}</td>
+                <td *ngIf="user.admin" class="text-center">{{ user.phone}}</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

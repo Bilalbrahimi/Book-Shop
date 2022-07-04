@@ -1,0 +1,41 @@
+.fa {
+    margin-right: 0.3em;
+}
+
+thead,
+tbody,
+tr,
+td,
+th {
+    display: block;
+}
+
+tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+tbody {
+    height: 600px;
+    overflow-y: auto;
+}
+
+tbody td,
+thead th {
+    width: 20%;
+    float: left;
+}
+
+th {
+    text-align: center;
+}
+
+.fa-unsorted {
+    margin-left: 20px;
+}
+
+td {
+    height: 50px;
+}

@@ -11,6 +11,7 @@ export class BookListComponent implements OnInit {
   public term : string
   public books : Book[] =[]
 
+
   constructor(router : Router, route : ActivatedRoute, private booksService : BooksService) { 
       this.term = route.snapshot.paramMap.get('term') || ""
   }
@@ -22,4 +23,6 @@ export class BookListComponent implements OnInit {
       }, (error: ErrorEvent) => {
       })
   }
+
+
 }

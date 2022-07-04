@@ -4,5 +4,5 @@ export interface CartItem {
     addedOn : Date
     quantity : number
     book : Book
-    totalPrice : Number
+    totalPrice : number
 }

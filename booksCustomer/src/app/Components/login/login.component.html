@@ -4,7 +4,7 @@
         <form method="post" (submit)="logIn()">
             <div class="inputBox">
                 <input id="username" type="text" name="Username" placeholder="Nom d'utilisateur" [(ngModel)]="username">
-                <input id="password" type="password" name="Password" placeholder="Mot de passe" [(ngModel)]="password">
+                <input id="password" type="password" name="Password" placeholder="Mot de pass" [(ngModel)]="password">
             </div>
             <input type="submit" name="" value="Se Connecter">
             <button type="button" *ngIf="error" class="btn btn-outline-danger" disabled>{{error}}</button>
