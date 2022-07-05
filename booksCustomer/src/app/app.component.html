@@ -15,8 +15,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a *ngIf="!isTokenThere" class="nav-item nav-link" routerLink="register">Register</a>
-                    <a *ngIf="!isTokenThere" class="nav-item nav-link" routerLink="login">Login</a>
+                    <a *ngIf="!isTokenThere" class="nav-item nav-link" routerLink="register">S'inscrire</a>
+                    <a *ngIf="!isTokenThere" class="nav-item nav-link" routerLink="login">S'identifier</a>
                     <a *ngIf="isTokenThere" class="nav-item nav-link" routerLink="historique">Mes Commandes</a>
                     <a class="nav-item nav-link" routerLink="aPropos">A Propos</a>
                 </div>
@@ -63,11 +63,11 @@
         </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a href="#" class="nav-item nav-link" routerLink="addBook">Mise en Vente</a>
-                    <a href="#" class="nav-item nav-link" routerLink="users">Clients</a>
-                    <a href="#" class="nav-item nav-link" routerLink="adminList">Admins</a>
+                    <a href="#" class="nav-item nav-link" routerLink="addBook">Gestion Catalogue</a>
+                    <a href="#" class="nav-item nav-link" routerLink="users">Gestion Clients</a>
+                    <a href="#" class="nav-item nav-link" routerLink="adminList">Gestion Admins</a>
 
-                    <a href="#" class="nav-item nav-link" routerLink="commandeList">Commandes</a>
+                    <a href="#" class="nav-item nav-link" routerLink="commandeList">Gestion Commandes</a>
                     <a class="nav-item nav-link" routerLink="aPropos">A Propos</a>
                 </div>
                 <div class="navbar-nav ms-auto">

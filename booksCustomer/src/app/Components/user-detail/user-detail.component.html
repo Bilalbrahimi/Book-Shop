@@ -6,23 +6,23 @@
             <div class="card-body p-md-5">
               <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-  
-                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Profile</p>
-  
+
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Mon profil</p>
+
                   <form class="mx-1 mx-md-4" *ngIf="!editMode">
-  
+
                     <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fa fa-user fa-3x" aria-hidden="true"></i>
                       <div class="form-outline flex-fill mb-0">
                         <input [(ngModel)]="username" [ngModelOptions]="{standalone: true}" type="text"  placeholder="{{username}}" id="form3Example1c" class="form-control" disabled/>
                       </div>
                     </div>
-  
+
                     <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
                       <div class="form-outline flex-fill mb-0">
                         <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" placeholder="{{email}}" id="form3Example2c" class="form-control" disabled/>
-                        
+
                       </div>
                     </div>
 
@@ -34,41 +34,41 @@
                       </div>
                     </div>
 
-  
+
                     <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
                       <div class="form-outline flex-fill mb-0">
                         <input [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" placeholder="{{phone}}" type="text" id="form3Example4c" class="form-control" disabled/>
-                        
+
                       </div>
                     </div>
 
-  
+
                     <h6 class="mt-2">{{ user.cartItems.length }} items in cart</h6>
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                       <button class="btn btn-primary" (click)="editMode = true" style="margin-right: 0.6rem;">Modifier</button>
                       <button class="btn btn-danger mx-2" (click)="deleteUser()">Supprimer</button>
-                      <button class="btn btn-info mx-2" (click)="logOut()">Deconnexion</button>
+                      <button class="btn btn-info mx-2" (click)="logOut()">Déconnexion</button>
                     </div>
-                    
-                  
-  
+
+
+
                   </form>
 
                   <form class="mx-1 mx-md-4" *ngIf="editMode">
-  
+
                     <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fa fa-user fa-3x" aria-hidden="true"></i>
                       <div class="form-outline flex-fill mb-0">
                         <input [(ngModel)]="username" [ngModelOptions]="{standalone: true}" type="text"  placeholder="{{username}}" id="form3Example1c" class="form-control" />
                       </div>
                     </div>
-  
+
                     <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
                       <div class="form-outline flex-fill mb-0">
                         <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" placeholder="{{email}}" id="form3Example2c" class="form-control" />
-                        
+
                       </div>
                     </div>
 
@@ -80,33 +80,33 @@
                       </div>
                     </div>
 
-  
+
                     <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
                       <div class="form-outline flex-fill mb-0">
                         <input [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" placeholder="{{phone}}" type="text" id="form3Example4c" class="form-control" />
-                        
+
                       </div>
                     </div>
 
-  
+
                     <h6 class="mt-2">{{ user.cartItems.length }} Dans votre Panier</h6>
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                       <button class="btn btn-success" style="margin-right: 0.6rem;" (click)="updateUser()">Enregistrer</button>
                         <button class="btn btn-secondary mx-2" (click)="editMode = false">Annuler</button>
                     </div>
 
-                    
-                  
-  
+
+
+
                   </form>
-  
+
                 </div>
                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-  
+
                   <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
                     class="img-fluid" alt="Sample image">
-  
+
                 </div>
               </div>
             </div>

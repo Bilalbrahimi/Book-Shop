@@ -2,8 +2,8 @@
 <h1 class="mx-auto text-center" style="margin-bottom: 6rem;">Livres</h1>
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fa fa-th fa-2x" aria-hidden="true"></i><h5>Grille</h5></a>
-        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fa fa-list fa-2x" aria-hidden="true"></i> <h5>List</h5></a>
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fa fa-th fa-2x" aria-hidden="true"></i><h5>Catalogue</h5></a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fa fa-list fa-2x" aria-hidden="true"></i> <h5>Trier le catalogue</h5></a>
     </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -16,11 +16,11 @@
         <br><br>
         <div class="d-flex" style="justify-content: center; flex-wrap: wrap;">
 
-            <div *ngFor="let book of books; let i = index" class="card mb-3" style="width: 320px; height:600px ">
+            <div *ngFor="let book of books; let i = index" class="card mb-3" style="width: 320px; height:680px ">
                 <div class="card card-body">
                     <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
                         <div class="mr-2 mb-3 mb-lg-0">
-                            <img src="../../../assets/images/{{book.image}}" width="240" height="240" alt="">
+                            <img src="../../../assets/images/{{book.image}}" width="240" height="350" alt="">
                         </div>
 
                         <div class="media-body">
@@ -73,7 +73,7 @@
                     <th scope="col" [appSort]="books" data-order="desc" data-name="name">Titre<i class="fa fa-unsorted" disabled></i></th>
                     <th scope="col" [appSort]="books" data-order="desc" data-name="author">Auteur<i class="fa fa-unsorted" disabled></i></th>
                     <th scope="col" [appSort]="books" data-order="desc" data-name="editor">Editeur<i class="fa fa-unsorted" disabled></i></th>
-                    <th scope="col" [appSort]="books" data-order="desc" data-name="addedOn">Ajouté le:<i class="fa fa-unsorted" disabled></i></th>
+                    <th scope="col" [appSort]="books" data-order="desc" data-name="addedOn">Ajouté le<i class="fa fa-unsorted" disabled></i></th>
                     <th scope="col" [appSort]="books" data-order="desc" data-name="price">Prix<i class="fa fa-unsorted" disabled></i></th>
                     <th scope="col" [appSort]="books" data-order="desc" data-name="image">Couverture <i class="fa fa-unsorted" disabled></i></th>
                 </tr>
@@ -86,7 +86,7 @@
                     <td class="text-center">{{ book.author }}</td>
                     <td class="text-center">{{ book.editor }}</td>
                     <td class="text-center">{{ book.addedOn | date: 'dd/MM/YYYY'}}</td>
-                    <td class="text-center">{{ book.price }}</td>
+                    <td class="text-center">{{ book.price }}€</td>
                     <td class="text-center">
                         <img src="../../../assets/images/{{book.image}}" width="40px" height="40px" />
                     </td>
