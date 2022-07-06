@@ -39,6 +39,9 @@ public class Book {
     private String editor;
     private String ean;
 
+    @Column(nullable = false, length = 20)
+    private String genre; //Roman, Polar, Fantasy, SF, Théâtre, Poésie, Cuisine, Voyage, Histoire, Jeunesse, BD, Langues
+
 
 
     public String getAuthor() {
@@ -65,7 +68,13 @@ public class Book {
         this.ean = ean;
     }
 
+    public String getGenre() {
+        return genre;
+    }
 
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
 
 
     public Book() {

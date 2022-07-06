@@ -12,6 +12,7 @@ export class Book {
         public editor : string,
         public ean : string,
         public isbn : string,
+        public genre : string
 
     ){}
 

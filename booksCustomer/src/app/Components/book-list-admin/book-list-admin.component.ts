@@ -13,12 +13,12 @@ export class BookListAdminComponent implements OnInit {
 
   user : any;
   books : Book[] = []
-  uploadForm: any; 
-  newBook: Book = new Book(0,"","",0,new Date(),"","","","","");
+  uploadForm: any;
+  newBook: Book = new Book(0,"","",0,new Date(),"","","","","","");
 
 
   constructor(
-      private router : Router, 
+      private router : Router,
       private bookService : BooksService,
       private formBuilder: FormBuilder,
   ) { }
@@ -31,14 +31,14 @@ export class BookListAdminComponent implements OnInit {
 
       this.bookService.getBooks().subscribe((books : Book[]) => {
         this.books = books
-          
+
       }, (error : ErrorEvent) => {
           console.log(error)
       })
       this.uploadForm = this.formBuilder.group({
         profile: ['']
       });
-      
+
   }
 
 
@@ -48,7 +48,7 @@ export class BookListAdminComponent implements OnInit {
           console.log(res)
           this.bookService.getBooks().subscribe((books : Book[]) => {
             this.books = books
-              
+
           }, (error : ErrorEvent) => {
               console.log(error)
           })
@@ -60,7 +60,7 @@ export class BookListAdminComponent implements OnInit {
 
     const formData = new FormData();
     formData.append('file', this.uploadForm.get('profile').value);
-       
+
     this.bookService.upPic(formData).subscribe()
       this.newBook.image = this.uploadForm.get('profile').value.name;
        this.bookService.addBook(this.newBook)
@@ -68,16 +68,16 @@ export class BookListAdminComponent implements OnInit {
          this.books = [even, ...this.books];
          console.log(this.newBook);
      })
- 
-     
 
- 
-     this.newBook = new Book(0,"","",0,new Date(),"","","","","");
- 
+
+
+
+     this.newBook = new Book(0,"","",0,new Date(),"","","","","","");
+
    }
 
    onFileChanged(event : any) {
- 
+
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.uploadForm.get('profile').setValue(file);

@@ -3,7 +3,7 @@
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fa fa-th fa-2x" aria-hidden="true"></i><h5>Catalogue</h5></a>
-        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fa fa-list fa-2x" aria-hidden="true"></i> <h5>Trier le catalogue</h5></a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fa fa-list fa-2x" aria-hidden="true"></i> <h5>Trier & Rechercher</h5></a>
     </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -26,14 +26,14 @@
                         <div class="media-body">
                             <br>
                             <h6 class="media-title font-weight-semibold">
-                                <a href="#" data-abc="true">{{ book.name }}</a>
+                                {{ book.name }}
                             </h6>
 
                             <ul class="list-inline list-inline-dotted mb-3 mb-lg-2">
-                                <li class="list-inline-item">isbn: {{ book.isbn}}</li>
+                                <li class="list-inline-item">ISBN: {{ book.isbn}}</li>
                             </ul>
                             <ul class="list-inline list-inline-dotted mb-3 mb-lg-2">
-                                <li class="list-inline-item">ean: {{ book.ean}}</li>
+                                <li class="list-inline-item">EAN: {{ book.ean}}</li>
                             </ul>
                             <ul class="list-inline list-inline-dotted mb-0">
                                 <li class="list-inline-item">{{ book.author}} </li>
@@ -68,11 +68,12 @@
         <table id="example" class="table table-striped  table-hover table-fixed">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col" [appSort]="books" data-order="desc" data-name="isbn">ISBN<i class="fa fa-unsorted" disabled></i></th>
-                    <th scope="col" [appSort]="books" data-order="desc" data-name="ean">EAN<i class="fa fa-unsorted" disabled></i></th>
+                    <th scope="col" [appSort]="books" data-order="desc" data-name="genre">Genre<i class="fa fa-unsorted" disabled></i></th>
                     <th scope="col" [appSort]="books" data-order="desc" data-name="name">Titre<i class="fa fa-unsorted" disabled></i></th>
                     <th scope="col" [appSort]="books" data-order="desc" data-name="author">Auteur<i class="fa fa-unsorted" disabled></i></th>
                     <th scope="col" [appSort]="books" data-order="desc" data-name="editor">Editeur<i class="fa fa-unsorted" disabled></i></th>
+                    <th scope="col" [appSort]="books" data-order="desc" data-name="isbn">ISBN<i class="fa fa-unsorted" disabled></i></th>
+                    <th scope="col" [appSort]="books" data-order="desc" data-name="ean">EAN<i class="fa fa-unsorted" disabled></i></th>
                     <th scope="col" [appSort]="books" data-order="desc" data-name="addedOn">Ajouté le<i class="fa fa-unsorted" disabled></i></th>
                     <th scope="col" [appSort]="books" data-order="desc" data-name="price">Prix<i class="fa fa-unsorted" disabled></i></th>
                     <th scope="col" [appSort]="books" data-order="desc" data-name="image">Couverture <i class="fa fa-unsorted" disabled></i></th>
@@ -80,15 +81,16 @@
             </thead>
             <tbody id="myTable">
                 <tr *ngFor="let book of books; let i = index" routerLink="/shop/books/{{ book.id }}">
-                    <td class="text-center">{{ book.isbn }}</td>
-                    <td class="text-center">{{ book.ean }}</td>
+                    <td class="text-center">{{ book.genre }}</td>
                     <td class="text-center">{{ book.name }}</td>
                     <td class="text-center">{{ book.author }}</td>
                     <td class="text-center">{{ book.editor }}</td>
+                    <td class="text-center">{{ book.isbn }}</td>
+                    <td class="text-center">{{ book.ean }}</td>
                     <td class="text-center">{{ book.addedOn | date: 'dd/MM/YYYY'}}</td>
                     <td class="text-center">{{ book.price }}€</td>
                     <td class="text-center">
-                        <img src="../../../assets/images/{{book.image}}" width="40px" height="40px" />
+                        <img src="../../../assets/images/{{book.image}}" width="30px" height="40px" />
                     </td>
                 </tr>
 

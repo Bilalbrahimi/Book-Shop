@@ -18,7 +18,7 @@ export class RegisterAdminComponent implements OnInit {
   public phone : any;
   public name : any;
   users: User[] = [];
-  
+
   public error : any
 
   constructor(private usersService : UsersService, private router : Router) { }
@@ -43,18 +43,18 @@ export class RegisterAdminComponent implements OnInit {
 
 
       this.usersService.registerAdmin(
-          this.username, this.password, this.email, this.email, this.address, this.phone, true).subscribe((token : Token) => {
+          this.username, this.password, this.email, this.name, this.address, this.phone, true).subscribe((token : Token) => {
               localStorage.setItem('token', token.token);
               this.router.navigateByUrl('/adminList').then(() => window.location.reload())
           }, (error : ErrorEvent) => {
               this.error = error.error
           })
   }
-  
+
   getUsers(){
     this.usersService.getUsers()
     .subscribe(usr => this.users = usr)
-    
+
   }
 
 }

@@ -8,9 +8,9 @@
 
             <tr>
                 <th scope="col" [appSort]="commandes" data-order="desc" data-name="date">Date<i class="fa fa-unsorted" disabled></i></th>
-                <th scope="col" [appSort]="commandes" data-order="desc" data-name="userName">Non d'utlisateur<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" [appSort]="commandes" data-order="desc" data-name="userName">Nom d'utilisateur<i class="fa fa-unsorted" disabled></i></th>
                 <th scope="col" [appSort]="commandes" data-order="desc" data-name="name">Email<i class="fa fa-unsorted" disabled></i></th>
-                <th scope="col" [appSort]="commandes" data-order="desc" data-name="adresse">Addresse<i class="fa fa-unsorted" disabled></i></th>
+                <th scope="col" [appSort]="commandes" data-order="desc" data-name="adresse">Adresse<i class="fa fa-unsorted" disabled></i></th>
                 <th scope="col" [appSort]="commandes" data-order="desc" data-name="totalPrice">Total<i class="fa fa-unsorted" disabled></i></th>
                 <th scope="col" [appSort]="commandes" data-order="desc" data-name="etat">Etat<i class="fa fa-unsorted" disabled></i></th>
                 <th scope="col">Action</th>
@@ -37,7 +37,7 @@
                         <button id="btnToDetail " class="btn btn-success btn-sm " routerLink="/commande/{{ c.commandeId }}">Détail</button>
 
                         <button id="btnToDelete" class="btn btn-danger btn-sm" (click)="deleteCommande(c)">
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>                          
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
                   </button>
                     </div>
                 </td>
